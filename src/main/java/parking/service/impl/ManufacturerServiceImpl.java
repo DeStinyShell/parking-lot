@@ -1,0 +1,39 @@
+package parking.service.impl;
+
+import java.util.List;
+import parking.dao.ManufacturerDao;
+import parking.lib.Inject;
+import parking.lib.Service;
+import parking.model.Manufacturer;
+import parking.service.ManufacturerService;
+
+@Service
+public class ManufacturerServiceImpl implements ManufacturerService {
+    @Inject
+    private ManufacturerDao manufacturerDao;
+
+    @Override
+    public Manufacturer create(Manufacturer manufacturer) {
+        return manufacturerDao.create(manufacturer);
+    }
+
+    @Override
+    public Manufacturer get(Long id) {
+        return manufacturerDao.get(id).get();
+    }
+
+    @Override
+    public List<Manufacturer> getAll() {
+        return manufacturerDao.getAll();
+    }
+
+    @Override
+    public Manufacturer update(Manufacturer manufacturer) {
+        return manufacturerDao.update(manufacturer);
+    }
+
+    @Override
+    public boolean delete(Long id) {
+        return manufacturerDao.delete(id);
+    }
+}
